@@ -43,8 +43,16 @@ function escapeHtml(s) {
 function safeStore(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
 function safeLoad(key, fallback) { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch (e) { return fallback; } }
 
-// ---- AI CHATBOT (English, rule-based demo) ----
+// ---- AI CHATBOT PRO (30+ intents, typing, memory, lead capture) ----
 const chatBody = document.getElementById('chatBody');
+let lastTopic = safeLoad('hub_last_topic', null);
+let chatHistory = safeLoad('hub_chat', []);
+function saveChat() {
+  try {
+    safeStore('hub_chat', chatHistory.slice(-30));
+    safeStore('hub_last_topic', lastTopic);
+  } catch (e) {}
+}
 function addMsg(text, who) {
   if (!chatBody) return;
   const d = document.createElement('div');
@@ -53,28 +61,99 @@ function addMsg(text, who) {
   else d.innerHTML = text;
   chatBody.appendChild(d);
   chatBody.scrollTop = chatBody.scrollHeight;
+  if (who !== 'typing') { chatHistory.push({ t: text.slice(0, 400), w: who }); saveChat(); }
 }
-function aiReply(q) {
-  q = String(q).toLowerCase();
-  if (q.includes('price') || q.includes('edit') || q.includes('rate') || q.includes('cost'))
-    return "Our editing prices: Reel/Shorts from <b>₹499</b>, Vlog/YouTube from <b>₹1499</b>, Photo retouch <b>₹99/photo</b>. Use the <b>Editing calculator</b> for the exact total. Want to place an order?";
-  if (q.includes('shoot') || q.includes('camera') || q.includes('book') || q.includes('studio'))
-    return "To book a shoot: go to the <b>Shooting section</b>, select type (Reel ₹1999 / Product ₹3499 / Event ₹7999), enter city + date. We confirm on WhatsApp within 2 hours.";
-  if (q.includes('course') || q.includes('learn') || q.includes('class') || q.includes('join'))
-    return "We have 3 courses: <b>Mobile Editing ₹999</b>, <b>0-100K Growth ₹1499</b>, <b>Brand Deals ₹1999</b>. Click <b>Enroll</b> in the Courses section and we will send payment + login details.";
-  if (q.includes('agency') || q.includes('work') || q.includes('job') || q.includes('part'))
-    return "For part-time agency work: open the <b>Agency Work</b> section. <b>Influencers</b> apply for brand reels, <b>Editors</b> apply for editing jobs. Agencies can post work in the <b>For Agencies</b> tab.";
-  if (q.includes('problem') || q.includes('help') || q.includes('support') || q.includes('refund') || q.includes('payment'))
-    return "Sorry to hear that! Please fill the <b>Support / Problem form</b> with your name, number and details. You will get a ticket number and a reply within 24 hours.";
-  if (q.includes('hi') || q.includes('hello') || q.includes('hey'))
-    return "Hello! How can I help — <b>editing, shooting, courses, support or agency work</b>?";
-  if (q.includes('offer') || q.includes('discount') || q.includes('free'))
-    return "Today's offer: first reel edit <b>FREE</b> + 20% OFF on shooting with code <b>SONALI20</b>.";
-  if (q.includes('service') || q.includes('strategy') || q.includes('branding') || q.includes('seo') || q.includes('monetiz') || q.includes('podcast') || q.includes('global') || q.includes('management'))
-    return "We offer <b>12 categories</b>: Strategy, Production, Editing, Social Media, Branding, Growth & SEO, Monetization, Brand Partnerships, Podcast, AI Tech, Management & Global services. Open the <b>Services</b> section and click Order on any card.";
-  if (q.includes('founder') || q.includes('owner') || q.includes('sonali') || q.includes('samridhi') || q.includes('who'))
-    return "Our founders: <b>Sonali Kumari (Owner & Founder)</b> — strategy & YouTube growth, and <b>Samridhi Singh (Co-Founder)</b> — operations & brand deals. They work privately behind the scenes — contact them via this hub.";
-  return "Got it! Tell me which one you need — <b>editing prices, shooting booking, courses, support or agency work</b> — or use the quick buttons above. A human also replies on WhatsApp Mon–Sat 10am–8pm.";
+function showTyping() {
+  if (!chatBody) return null;
+  const d = document.createElement('div');
+  d.className = 'msg ai typing';
+  d.innerHTML = '<span></span><span></span><span></span>';
+  d.id = 'typingBubble';
+  chatBody.appendChild(d);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  return d;
+}
+function hideTyping() { const t = document.getElementById('typingBubble'); if (t) t.remove(); }
+(function restoreChat() {
+  if (!chatBody || !chatHistory.length) return;
+  chatHistory.slice(-6).forEach(m => {
+    const d = document.createElement('div');
+    d.className = 'msg ' + m.w;
+    if (m.w === 'user') d.textContent = m.t; else d.innerHTML = m.t;
+    chatBody.appendChild(d);
+  });
+  chatBody.scrollTop = chatBody.scrollHeight;
+})();
+
+const WA = 'https://wa.me/917000000000?text=Hi%20Sonali%20Creator%20Hub!';
+function secLink(id, label) { return '<a href="#' + id + '" style="color:#7c3aed;font-weight:800">' + label + ' →</a>'; }
+
+const INTENTS = [
+ { id:'greeting', keys:['hello','hi','hey','namaste','good morning','good evening','hii'], reply:"Hello! Welcome to <b>Sonali Creator Hub</b>. I can help with <b>editing, shooting, courses, services, agency work, support, pricing, founders</b>. What do you need today?" },
+ { id:'howareyou', keys:['how are you','how r u','kaise ho','your name','who are you'], reply:"I am <b>Hub AI</b>, your 24x7 creator assistant. I am doing great! Tell me — do you need <b>editing, shooting, a course, or agency work</b>?" },
+ { id:'editing_price', keys:['editing price','edit price','reel price','shorts price','vlog price','rate card','rates','how much edit','cost of edit','price list','charge'], reply:"<b>Editing prices:</b><br>• Reel/Shorts — <b>₹499</b><br>• Vlog/YouTube — <b>₹1499</b><br>• Photo retouch — <b>₹99/photo</b><br>• Product ad — <b>₹999</b><br>• Wedding highlight — <b>₹2999</b><br>Urgent +50%. Try the " + secLink('editing','Editing calculator') + " for exact total." },
+ { id:'editing_process', keys:['editing process','how to order edit','order edit','send raw','drive link','revision edit','delivery edit','how long edit'], reply:"<b>Editing order in 3 steps:</b><br>1. Go to " + secLink('editing','Editing') + " and fill the order form (name, WhatsApp, drive link)<br>2. We edit in 24-48 hrs (reels) / 3-5 days (vlogs)<br>3. You get preview → 2 free revisions → final file. First reel edit is <b>FREE</b> with code SONALI20." },
+ { id:'shooting_price', keys:['shoot price','shooting price','shoot cost','cameraman price','studio price','product shoot','reel shoot price'], reply:"<b>Shooting prices:</b><br>• Reel shoot — <b>₹1999</b> (2 hrs, 3 reels)<br>• Product shoot — <b>₹3499</b> (20 photos + 2 reels)<br>• Vlog/Event — <b>₹7999/day</b><br>20% OFF with SONALI20. Book in " + secLink('shooting','Shooting') + "." },
+ { id:'shooting_process', keys:['book shoot','shoot booking','how to book','shoot location','shoot city','cameraman book','studio book'], reply:"<b>Shoot booking:</b> open " + secLink('shooting','Shooting') + " → enter name, city, shoot type + date. We confirm on WhatsApp within 2 hours with location, timing and advance details. Pan India, remote + on-site." },
+ { id:'courses_all', keys:['course','courses','learn','class','join course','training','seekhna','sikhna'], reply:"We have <b>3 courses</b>:<br>• <b>Mobile Editing ₹999</b> — CapCut, captions, hooks (20 lessons + certificate)<br>• <b>0-100K Growth ₹1499</b> — niche, calendar, algorithm + live doubts<br>• <b>Brand Deals ₹1999</b> — rate card, media kit, contracts<br>Click Enroll in " + secLink('courses','Courses') + ". Which one interests you?" },
+ { id:'course_editing', keys:['mobile editing','capcut course','vn course','editing course'], reply:"<b>Mobile Editing Masterclass (₹999):</b> 20 videos, CapCut + VN, captions, viral hooks, certificate. Lifetime access. Enroll in " + secLink('courses','Courses') + " — we send payment link on WhatsApp." },
+ { id:'course_growth', keys:['100k','growth course','followers','algorithm','viral course'], reply:"<b>0 to 100K Growth (₹1499):</b> niche selection, content calendar, algorithm secrets, collab pitch + live doubt class. Best for 0-50K creators. Enroll in " + secLink('courses','Courses') + "." },
+ { id:'course_brand', keys:['brand deal course','sponsorship course','media kit course'], reply:"<b>Brand Deals + Agency (₹1999):</b> rate card, media kit, contracts, agency onboarding, freelance setup. You also get listed for agency work. Enroll in " + secLink('courses','Courses') + "." },
+ { id:'agency_inf', keys:['influencer work','brand reel work','collab work','promotion work','paid promotion'], reply:"<b>For Influencers:</b> open " + secLink('agency','Agency Work') + " → For Influencers tab. Current: Skincare Reel ₹3000, Food Vlog ₹5000, Fashion Haul ₹4500. Click Apply, then share your profile link on WhatsApp. 10K+ followers preferred but micro-creators welcome." },
+ { id:'agency_editor', keys:['editor work','editing job','editor job','thumbnail job','video editor work'], reply:"<b>For Editors:</b> open " + secLink('agency','Agency Work') + " → For Editors tab. Current: 10 Reels ₹4999/week, Wedding Teaser ₹6000, Thumbnails ₹1500. Remote work, weekly payout. Click Apply with your samples." },
+ { id:'agency_post', keys:['post work','hire influencer','hire editor','need creator','agency post','i am agency'], reply:"<b>For Agencies:</b> open " + secLink('agency','Agency Work') + " → For Agencies tab → fill agency name, work type, budget, date → Post. Your job appears instantly and creators apply." },
+ { id:'agency_general', keys:['agency','part time','part-time','job','work from home','earn','salary','payout'], reply:"<b>Part-time agency work:</b> you can work with <b>multiple agencies</b> at once. Influencers do brand reels, editors do remote edits. Payout weekly/monthly via UPI. See " + secLink('agency','Agency Work') + ". Are you an <b>influencer, editor or agency</b>?" },
+ { id:'support', keys:['problem','help','support','issue','complaint','ticket','not working'], reply:"Sorry about that! Please fill the " + secLink('problem','Support form') + " (name, WhatsApp, category, details). You get a <b>ticket number</b> and reply within 24 hours. For urgent: <a href='" + WA + "' target='_blank' style='color:#7c3aed;font-weight:800'>WhatsApp us →</a>" },
+ { id:'refund', keys:['refund','payment failed','money back','paid but','not received'], reply:"For <b>payments/refunds</b>: share your name, date, amount and screenshot in the " + secLink('problem','Support form') + " under <b>Payment / Refund</b>. Refunds for undelivered work are processed in 5-7 days." },
+ { id:'services_all', keys:['services','what services','all services','service list','what do you do'], reply:"We offer <b>12 categories</b>: Strategy, Production, Editing, Social Media, Branding, Growth & SEO, Monetization, Brand Partnerships, Podcast, AI Tech, Management, Global. Open " + secLink('services','All Services') + " and click Order on any card." },
+ { id:'seo', keys:['seo','keyword','hashtag','title','ranking','reach','views','growth'], reply:"<b>Growth & SEO:</b> YouTube SEO, keyword research, title/description optimization, hashtag + discoverability strategy, analytics. Ask in " + secLink('services','Services') + " → Growth & SEO card, or take the 0-100K course." },
+ { id:'branding', keys:['branding','logo','banner','thumbnail','media kit','brand identity','personal brand'], reply:"<b>Creator Branding:</b> personal branding, logo, channel art, thumbnail style, media kit, guidelines + website. Order from " + secLink('services','Services') + " → Creator Branding." },
+ { id:'monetization', keys:['monetiz','sponsor','brand deal','affiliate','merch','membership','earn money'], reply:"<b>Monetization:</b> YouTube monetization, sponsorships, brand deals, affiliate, digital products, course launch, memberships. Start with the Brand Deals course or " + secLink('services','Services') + " → Monetization." },
+ { id:'podcast', keys:['podcast'], reply:"<b>Podcast:</b> strategy, setup, recording, production, editing, branding, distribution, clips + marketing. Order from " + secLink('services','Services') + " → Podcast card." },
+ { id:'ai_tech', keys:['ai','automation','avatar','voice','ai video','ai tool'], reply:"<b>AI & Creator Tech:</b> AI content strategy, AI video, AI scripts/thumbnails, AI voice, AI avatars, repurposing + workflow automation. This chat itself is a demo — full WhatsApp/Instagram automation coming soon." },
+ { id:'founders', keys:['founder','owner','sonali','samridhi','who owns','team','who are you run'], reply:"Our founders: <b>Sonali Kumari (Owner & Founder)</b> — strategy & YouTube growth, and <b>Samridhi Singh (Co-Founder)</b> — operations & brand deals. They work privately behind the scenes (introvert-friendly). Contact via this hub: " + secLink('founders','Founders') + "." },
+ { id:'offer', keys:['offer','discount','coupon','promo','free','deal','sonali20'], reply:"Today's offer: first reel edit <b>FREE</b> + <b>20% OFF</b> on shooting with code <b>SONALI20</b>. Mention the code in any form or chat." },
+ { id:'timing', keys:['timing','time','open','working hours','when','available','holiday'], reply:"We work <b>Mon–Sat, 10am–8pm</b>. AI replies 24x7. Humans reply on WhatsApp within working hours, support tickets within 24 hours." },
+ { id:'contact', keys:['contact','phone','number','whatsapp','email','address','location address','talk to human','human','call'], reply:"Contact: <b>WhatsApp Support</b> (Mon–Sat 10-8), Pan India remote + on-site. Fastest: <a href='" + WA + "' target='_blank' style='color:#7c3aed;font-weight:800'>Chat on WhatsApp →</a> or use the " + secLink('problem','Support form') + "." },
+ { id:'location', keys:['city','cities','location','delhi','mumbai','bangalore','where'], reply:"We serve <b>Pan India</b>. Editing/courses/support are fully remote. Shooting is on-site — enter your city in the " + secLink('shooting','Shooting form') + " and we arrange a local team." },
+ { id:'portfolio', keys:['sample','portfolio','demo','previous work','proof','trust','review'], reply:"Samples: check <b>Courses + finished reels</b> shared after enquiry, plus 500+ creators and 1200+ videos edited. Share your niche on WhatsApp and we send matching samples." },
+ { id:'payment_mode', keys:['upi','payment method','how to pay','gpay','phonepe','paytm','bank'], reply:"Payments via <b>UPI / bank transfer</b>. Link is sent on WhatsApp after you submit a form. 50% advance for shoots, 100% for editing under ₹2000. GST invoice on request." },
+ { id:'thanks', keys:['thank','thanks','great','nice','awesome','good'], reply:"You are most welcome! Anything else — <b>editing, shooting, course or agency work</b>?" },
+ { id:'bye', keys:['bye','see you','good night','tata'], reply:"Bye! Good luck with your content. I am here 24x7 whenever you need editing, shooting or brand deals." }
+];
+
+function aiReply(raw) {
+  const q = ' ' + String(raw).toLowerCase().trim() + ' ';
+  // Lead capture: phone number
+  const phone = String(raw).replace(/\D/g, '');
+  if (phone.length >= 10 && phone.length <= 13 && /(number|mobile|phone|call|whatsapp|contact)/.test(q)) {
+    try { safeStore('hub_lead', { phone, at: new Date().toISOString() }); } catch (e) {}
+    lastTopic = 'contact'; saveChat();
+    return "Thanks! Saved your number ending <b>" + escapeHtml(phone.slice(-5)) + "</b>. Our team will WhatsApp you shortly. Meanwhile — do you need <b>editing, shooting or a course</b>?";
+  }
+  // Score intents
+  let best = null, bestScore = 0;
+  INTENTS.forEach(it => {
+    let s = 0;
+    it.keys.forEach(k => { if (q.includes(k)) s += k.length > 5 ? 2 : 1; });
+    if (s > bestScore) { bestScore = s; best = it; }
+  });
+  // Follow-up context: short queries
+  if ((!best || bestScore < 2) && lastTopic && /^(price|prices|cost|how much|how|process|join|apply|where|when)/.test(q.trim())) {
+    const ctx = INTENTS.find(i => i.id === lastTopic);
+    if (ctx) { return ctx.reply + "<br><br><small>Tip: type <b>services</b> for all 12 categories, or <b>human</b> for WhatsApp.</small>"; }
+  }
+  if (best && bestScore > 0) {
+    lastTopic = best.id === 'greeting' || best.id === 'thanks' ? lastTopic : best.id;
+    saveChat();
+    return best.reply + (best.id === 'greeting' ? '' : "<br><br><small>Need more? Ask about <b>price, courses, agency work, founders</b> or type <b>human</b>.</small>");
+  }
+  return "I want to help correctly. I can answer about:<br>• <b>Editing</b> (price/process)<br>• <b>Shooting</b> (price/booking)<br>• <b>Courses</b> (which one to join)<br>• <b>Agency work</b> (influencer/editor)<br>• <b>Services</b> (all 12)<br>• <b>Support / refund</b><br>• <b>Founders, timings, offers</b><br>Please ask one of these, or type <b>human</b> for WhatsApp support.";
+}
+function respondWithTyping(userText) {
+  showTyping();
+  const delay = 500 + Math.min(userText.length * 12, 900);
+  setTimeout(() => { hideTyping(); addMsg(aiReply(userText), 'ai'); }, delay);
 }
 function sendChat() {
   const inp = document.getElementById('chatInput');
@@ -84,13 +163,14 @@ function sendChat() {
   addMsg(v, 'user');
   inp.value = '';
   inp.focus();
-  setTimeout(() => addMsg(aiReply(v), 'ai'), 450);
+  respondWithTyping(v);
 }
 function askAI(q) {
-  addMsg(String(q).slice(0, 200), 'user');
-  const body = document.getElementById('ai');
-  if (body) body.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  setTimeout(() => addMsg(aiReply(q), 'ai'), 450);
+  q = String(q).slice(0, 200);
+  addMsg(q, 'user');
+  const sec = document.getElementById('ai');
+  if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  respondWithTyping(q);
 }
 
 // ---- Editing calculator ----
