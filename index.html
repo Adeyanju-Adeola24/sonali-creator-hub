@@ -28,11 +28,13 @@
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
       <a href="#home" class="active">Home</a>
       <a href="#ai">AI Chat</a>
+      <a href="#services">Services</a>
       <a href="#editing">Editing</a>
       <a href="#shooting">Shooting</a>
       <a href="#courses">Courses</a>
       <a href="#problem">Support</a>
       <a href="#agency">Agency Work</a>
+      <a href="#founders">Founders</a>
     </nav>
     <div class="nav-cta">
       <a href="#agency" class="btn btn-primary nav-cta-btn"><span class="nav-cta-text">Part-Time Work</span><span class="nav-cta-short">Jobs</span></a>
@@ -99,6 +101,27 @@
         <div class="msg ai">Hello! I am Hub AI. Ask me about <b>editing, shooting, courses, support or agency work</b> — how can I help you today?</div>
       </div>
       <div class="chat-input"><input id="chatInput" placeholder="Type here... e.g. reel editing price?" aria-label="Chat message" autocomplete="off" onkeypress="if(event.key==='Enter')sendChat()" /><button type="button" onclick="sendChat()" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head"><span class="section-tag">All Services • 12 Categories</span><h2>Everything a Creator Needs — In One Hub</h2><p>Top 6 services from each category. Click any card to order via AI chat or the forms below. Full list available on request.</p></div>
+    <div class="services-grid">
+      <div class="service-cat"><div class="icon purple"><i class="fa-solid fa-compass"></i></div><h3>1. Creator Strategy</h3><ul><li>Niche Research</li><li>Audience Research</li><li>Content Strategy</li><li>Content Calendar</li><li>Creator Roadmap</li><li>Growth Consulting</li></ul><button type="button" class="link-btn" onclick="askAI('I need Creator Strategy service')">Order →</button></div>
+      <div class="service-cat"><div class="icon red"><i class="fa-solid fa-clapperboard"></i></div><h3>2. Content Production</h3><ul><li>Video Production</li><li>Script Writing</li><li>Short-Form Content</li><li>UGC Content</li><li>Content Repurposing</li><li>Production Management</li></ul><button type="button" class="link-btn" onclick="askAI('I need Content Production service')">Order →</button></div>
+      <div class="service-cat"><div class="icon blue"><i class="fa-solid fa-scissors"></i></div><h3>3. Video &amp; Editing</h3><ul><li>Reels / Shorts Editing</li><li>YouTube Video Editing</li><li>Podcast Editing</li><li>Motion Graphics</li><li>Subtitles &amp; Captions</li><li>Color &amp; Audio Enhancement</li></ul><button type="button" class="link-btn" onclick="askAI('What is the editing price?')">Order →</button></div>
+      <div class="service-cat"><div class="icon green"><i class="fa-solid fa-mobile-screen"></i></div><h3>4. Social Media</h3><ul><li>Instagram Management</li><li>TikTok + Reels Management</li><li>YouTube Management</li><li>Scheduling &amp; Publishing</li><li>Cross-Platform Management</li><li>Profile Optimization</li></ul><button type="button" class="link-btn" onclick="askAI('I need social media management')">Order →</button></div>
+      <div class="service-cat"><div class="icon orange"><i class="fa-solid fa-palette"></i></div><h3>5. Creator Branding</h3><ul><li>Personal Branding</li><li>Logo + Brand Identity</li><li>Thumbnail Branding</li><li>Creator Media Kit</li><li>Channel Branding</li><li>Creator Website</li></ul><button type="button" class="link-btn" onclick="askAI('I need creator branding')">Order →</button></div>
+      <div class="service-cat"><div class="icon teal"><i class="fa-solid fa-rocket"></i></div><h3>6. Growth &amp; SEO</h3><ul><li>YouTube SEO</li><li>Keyword Research</li><li>Title + Description Optimization</li><li>Hashtag Strategy</li><li>Engagement Strategy</li><li>Performance Analytics</li></ul><button type="button" class="link-btn" onclick="askAI('I need growth and SEO')">Order →</button></div>
+      <div class="service-cat"><div class="icon purple"><i class="fa-solid fa-sack-dollar"></i></div><h3>7. Monetization</h3><ul><li>YouTube Monetization</li><li>Sponsorships + Brand Deals</li><li>Affiliate Marketing</li><li>Digital Products</li><li>Course Launch</li><li>Membership Strategy</li></ul><button type="button" class="link-btn" onclick="askAI('I need monetization help')">Order →</button></div>
+      <div class="service-cat"><div class="icon red"><i class="fa-solid fa-handshake"></i></div><h3>8. Brand Partnerships</h3><ul><li>Influencer Marketing</li><li>Creator Matching</li><li>Brand Campaigns</li><li>Sponsored Content</li><li>Campaign Management</li><li>Campaign Reporting</li></ul><button type="button" class="link-btn" onclick="askAI('How do I get agency work?')">Order →</button></div>
+      <div class="service-cat"><div class="icon blue"><i class="fa-solid fa-podcast"></i></div><h3>9. Podcast</h3><ul><li>Podcast Strategy + Setup</li><li>Recording + Production</li><li>Podcast Editing</li><li>Podcast Branding</li><li>Distribution</li><li>Podcast Clips + Marketing</li></ul><button type="button" class="link-btn" onclick="askAI('I need podcast service')">Order →</button></div>
+      <div class="service-cat"><div class="icon green"><i class="fa-solid fa-robot"></i></div><h3>10. AI &amp; Creator Tech</h3><ul><li>AI Content Strategy</li><li>AI Video Creation</li><li>AI Script + Thumbnail</li><li>AI Voice Solutions</li><li>Creator Automation</li><li>AI Workflow Setup</li></ul><button type="button" class="link-btn" onclick="askAI('Tell me about AI services')">Order →</button></div>
+      <div class="service-cat"><div class="icon orange"><i class="fa-solid fa-briefcase"></i></div><h3>11. Creator Management</h3><ul><li>Full Creator Management</li><li>Content Management</li><li>Brand Deal Management</li><li>Community Management</li><li>Analytics Management</li><li>Creator Business Setup</li></ul><button type="button" class="link-btn" onclick="askAI('I need creator management')">Order →</button></div>
+      <div class="service-cat"><div class="icon teal"><i class="fa-solid fa-globe"></i></div><h3>12. Global Services</h3><ul><li>Multi-Language Content</li><li>Translation + Localization</li><li>Global Audience Growth</li><li>International Brand Deals</li><li>Global Campaigns</li><li>Global Expansion</li></ul><button type="button" class="link-btn" onclick="askAI('I need global creator services')">Order →</button></div>
     </div>
   </div>
 </section>
@@ -220,6 +243,30 @@
       <div id="postedJobs" class="posted-jobs" style="margin-top:16px"></div>
     </div>
     <p id="applyMsg" class="ref-msg" style="text-align:center;margin-top:12px" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="section light" id="founders">
+  <div class="container">
+    <div class="section-head"><span class="section-tag">Owner &amp; Co-Founder</span><h2>Meet the Founders</h2><p>We work behind the scenes so creators can shine in front of the camera. Introvert-friendly team — no public pressure, just professional work via chat.</p></div>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <div class="founder-avatar">SK</div>
+        <span class="founder-role">Owner &amp; Founder</span>
+        <h3>Sonali Kumari</h3>
+        <p class="founder-desc">Creator strategy, planning, YouTube growth and overall direction. Handles content planning, roadmaps and long-term creator success.</p>
+        <ul class="founder-points"><li><i class="fa-solid fa-check"></i> Strategy &amp; Planning</li><li><i class="fa-solid fa-check"></i> YouTube &amp; Growth</li><li><i class="fa-solid fa-check"></i> Contact via Hub AI chat</li></ul>
+      </div>
+      <div class="founder-card">
+        <div class="founder-avatar alt">SS</div>
+        <span class="founder-role alt">Co-Founder</span>
+        <h3>Samridhi Singh</h3>
+        <p class="founder-desc">Operations, brand partnerships and agency work. Handles editing workflow, shooting coordination and client communication.</p>
+        <ul class="founder-points"><li><i class="fa-solid fa-check"></i> Operations &amp; Delivery</li><li><i class="fa-solid fa-check"></i> Brand Deals &amp; Agencies</li><li><i class="fa-solid fa-check"></i> Contact via Hub AI chat</li></ul>
+      </div>
+    </div>
+    <p class="privacy-note"><i class="fa-solid fa-lock"></i> Privacy-first: our founders are introverts and prefer working privately. No public appearances — all communication happens professionally through this hub.</p>
   </div>
 </section>
 

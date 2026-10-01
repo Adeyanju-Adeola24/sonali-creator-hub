@@ -24,7 +24,7 @@ document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click
 }));
 
 // Active nav on scroll
-const sections = ['home','ai','editing','shooting','courses','problem','agency'];
+const sections = ['home','ai','services','editing','shooting','courses','problem','agency','founders'];
 window.addEventListener('scroll', () => {
   let current = 'home';
   sections.forEach(id => {
@@ -70,6 +70,10 @@ function aiReply(q) {
     return "Hello! How can I help — <b>editing, shooting, courses, support or agency work</b>?";
   if (q.includes('offer') || q.includes('discount') || q.includes('free'))
     return "Today's offer: first reel edit <b>FREE</b> + 20% OFF on shooting with code <b>SONALI20</b>.";
+  if (q.includes('service') || q.includes('strategy') || q.includes('branding') || q.includes('seo') || q.includes('monetiz') || q.includes('podcast') || q.includes('global') || q.includes('management'))
+    return "We offer <b>12 categories</b>: Strategy, Production, Editing, Social Media, Branding, Growth & SEO, Monetization, Brand Partnerships, Podcast, AI Tech, Management & Global services. Open the <b>Services</b> section and click Order on any card.";
+  if (q.includes('founder') || q.includes('owner') || q.includes('sonali') || q.includes('samridhi') || q.includes('who'))
+    return "Our founders: <b>Sonali Kumari (Owner & Founder)</b> — strategy & YouTube growth, and <b>Samridhi Singh (Co-Founder)</b> — operations & brand deals. They work privately behind the scenes — contact them via this hub.";
   return "Got it! Tell me which one you need — <b>editing prices, shooting booking, courses, support or agency work</b> — or use the quick buttons above. A human also replies on WhatsApp Mon–Sat 10am–8pm.";
 }
 function sendChat() {

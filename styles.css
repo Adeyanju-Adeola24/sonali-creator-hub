@@ -178,6 +178,35 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
 .chat-fab{position:fixed;right:22px;bottom:22px;width:60px;height:60px;border-radius:50%;border:0;background:var(--grad);color:#fff;font-size:1.55rem;cursor:pointer;box-shadow:0 14px 36px rgba(124,58,237,.5);transition:.25s;z-index:99;bottom:calc(22px + env(safe-area-inset-bottom))}
 .chat-fab:hover{transform:scale(1.1) rotate(8deg)}
 
+/* services mega grid */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-cat{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:26px 22px;transition:.3s;position:relative;overflow:hidden;min-width:0}
+.service-cat::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:.3s}
+.service-cat:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.service-cat:hover::after{transform:scaleX(1)}
+.service-cat .icon{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;color:#fff;font-size:1.3rem;margin-bottom:12px;box-shadow:0 10px 22px rgba(0,0,0,.16)}
+.service-cat h3{font-size:1.02rem;margin-bottom:10px}
+.service-cat ul{list-style:none;display:grid;gap:7px;margin:0 0 14px}
+.service-cat li{font-size:.88rem;color:#3b355c;background:#f8f6ff;border:1px solid #eee7ff;padding:7px 12px;border-radius:10px}
+.service-cat li::before{content:'✓ ';color:#16a34a;font-weight:800}
+.link-btn{background:none;border:0;color:var(--p);font-weight:800;cursor:pointer;font-size:.9rem;padding:0}
+.link-btn:hover{text-decoration:underline}
+/* founders */
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+.founder-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:32px 28px;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.founder-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--grad)}
+.founder-avatar{width:76px;height:76px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.5rem;margin:0 auto 14px;box-shadow:0 12px 28px rgba(124,58,237,.4)}
+.founder-avatar.alt{background:linear-gradient(135deg,#06b6d4,#3b82f6)}
+.founder-role{display:inline-block;background:#ede9fe;color:var(--p);font-size:.74rem;font-weight:800;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.6px}
+.founder-role.alt{background:#e0f2fe;color:#0369a1}
+.founder-card h3{margin:10px 0 6px;font-size:1.3rem}
+.founder-desc{color:var(--muted);font-size:.93rem;margin-bottom:14px}
+.founder-points{list-style:none;text-align:left;display:grid;gap:8px;max-width:320px;margin:0 auto}
+.founder-points li{background:#f8f6ff;border:1px solid #eee7ff;padding:9px 13px;border-radius:11px;font-size:.88rem}
+.founder-points i{color:#16a34a;margin-right:8px}
+.privacy-note{text-align:center;color:var(--muted);font-size:.88rem;margin-top:20px;background:#fff;border:1px dashed #c4b5fd;padding:12px 18px;border-radius:14px;max-width:760px;margin-left:auto;margin-right:auto}
+.privacy-note i{color:var(--p);margin-right:6px}
+
 /* reveal */
 .service-card,.job,.booking-form,.form-wrap,.chat-box{animation:fadeUp .6s ease backwards}
 .service-card:nth-child(2){animation-delay:.08s}.service-card:nth-child(3){animation-delay:.16s}
@@ -193,7 +222,8 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
 /* Tablet landscape / small laptop */
 @media(max-width:960px){
   .grid-2,.hero-grid{grid-template-columns:1fr;gap:28px}
-  .cards-3{grid-template-columns:repeat(2,1fr)}
+  .cards-3,.services-grid{grid-template-columns:repeat(2,1fr)}
+  .founders-grid{grid-template-columns:1fr 1fr}
   .section{padding:60px 0}
   .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:12px;right:12px;background:#fff;flex-direction:column;padding:12px;border-radius:18px;box-shadow:var(--shadow-lg);border:1px solid var(--border);gap:2px;z-index:200}
   .nav-links.open{display:flex}
@@ -225,7 +255,7 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
   .nav-cta-text{display:none}
   .nav-cta-short{display:inline}
   .nav-cta-btn{padding:10px 16px;font-size:.85rem}
-  .cards-3{grid-template-columns:1fr}
+  .cards-3,.services-grid,.founders-grid{grid-template-columns:1fr}
   .hero{padding:38px 0}
   .hero-btns .btn{width:100%;min-width:0}
   .hero-stats{grid-template-columns:repeat(3,1fr);gap:8px}
