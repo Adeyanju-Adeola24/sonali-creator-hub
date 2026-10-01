@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Sonali Creator Hub | Editing, Shooting, Courses & Agency Work for Influencers</title>
+<meta name="description" content="All-in-one hub for influencers: AI message system, video editing, shooting booking, courses, problem support and part-time agency work." />
+<meta name="theme-color" content="#7c3aed" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c3aed'/%3E%3Cstop offset='1' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-left"><i class="fa-solid fa-sparkles"></i> Influencers • Editors • Agencies — all in one place</div>
+    <div class="topbar-right"><span><i class="fa-brands fa-whatsapp"></i> WhatsApp Support</span><span><i class="fa-solid fa-clock"></i> Mon–Sat 10am–8pm</span></div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo" aria-label="Sonali Creator Hub home"><div class="logo-mark">S</div><div><strong>SONALI CREATOR HUB</strong><small>Editing • Shooting • Courses • Agency Work</small></div></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#ai">AI Chat</a>
+      <a href="#editing">Editing</a>
+      <a href="#shooting">Shooting</a>
+      <a href="#courses">Courses</a>
+      <a href="#problem">Support</a>
+      <a href="#agency">Agency Work</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#agency" class="btn btn-primary nav-cta-btn"><span class="nav-cta-text">Part-Time Work</span><span class="nav-cta-short">Jobs</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="badge"><i class="fa-solid fa-robot"></i> AI Message System + Complete Creator Support</span>
+      <h1>Everything an Influencer Needs — <span>In One Website.</span></h1>
+      <p>Video editing, professional shooting, online courses, problem support, and part-time work with multiple agencies — each with its own dedicated section. Send your requirements, learn, and earn. This platform will keep upgrading over time.</p>
+      <div class="hero-btns">
+        <a href="#ai" class="btn btn-primary"><i class="fa-solid fa-robot"></i> Chat with AI</a>
+        <a href="#editing" class="btn btn-outline"><i class="fa-solid fa-scissors"></i> Order Editing</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>500+</strong><span>Creators</span></div>
+        <div><strong>1200+</strong><span>Videos Edited</span></div>
+        <div><strong>40+</strong><span>Agencies</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="quick-grid">
+        <a href="#editing" class="quick"><i class="fa-solid fa-clapperboard"></i><b>Editing</b><span>Reels / Vlogs / Photos</span></a>
+        <a href="#shooting" class="quick"><i class="fa-solid fa-camera"></i><b>Shooting</b><span>Book a Shoot</span></a>
+        <a href="#courses" class="quick"><i class="fa-solid fa-graduation-cap"></i><b>Courses</b><span>Learn &amp; Grow</span></a>
+        <a href="#problem" class="quick"><i class="fa-solid fa-life-ring"></i><b>Have an Issue?</b><span>Send it here</span></a>
+      </div>
+      <div class="result-card">
+        <div class="result-head"><strong><i class="fa-solid fa-bolt"></i> Today's Offer</strong><span class="pulse"></span></div>
+        <p>First reel edit <b>FREE</b> + <b>20% OFF</b> on shooting bookings. Code: <b>SONALI20</b></p>
+        <button type="button" class="btn btn-primary btn-block" onclick="document.getElementById('ai').scrollIntoView({behavior:'smooth'})">Ask AI for Prices <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="section light" id="ai">
+  <div class="container grid-2">
+    <div>
+      <span class="section-tag">AI Message System</span>
+      <h2>AI Assistant — Replies 24x7</h2>
+      <p>Just like a DM assistant — it instantly answers about <b>pricing, timings, courses, and agency work</b>. Try the live demo. Later we can connect it to WhatsApp / Instagram for full upgrades.</p>
+      <div class="chips">
+        <button type="button" onclick="askAI('What is the editing price?')">Editing price?</button>
+        <button type="button" onclick="askAI('How do I book a shoot?')">Shooting booking?</button>
+        <button type="button" onclick="askAI('How do I join a course?')">Courses?</button>
+        <button type="button" onclick="askAI('How do I get agency work?')">Agency work?</button>
+      </div>
+      <ul class="check-list">
+        <li><i class="fa-solid fa-check"></i> Auto-replies: rate card, portfolio, timings</li>
+        <li><i class="fa-solid fa-check"></i> Lead capture: name + number + requirement</li>
+        <li><i class="fa-solid fa-check"></i> Future upgrade: WhatsApp API + Instagram DM</li>
+      </ul>
+    </div>
+    <div class="chat-box">
+      <div class="chat-head"><div class="dot"></div><div><b>Hub AI Assistant</b><small>● online — English</small></div><i class="fa-solid fa-robot"></i></div>
+      <div class="chat-body" id="chatBody" aria-live="polite">
+        <div class="msg ai">Hello! I am Hub AI. Ask me about <b>editing, shooting, courses, support or agency work</b> — how can I help you today?</div>
+      </div>
+      <div class="chat-input"><input id="chatInput" placeholder="Type here... e.g. reel editing price?" aria-label="Chat message" autocomplete="off" onkeypress="if(event.key==='Enter')sendChat()" /><button type="button" onclick="sendChat()" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDITING -->
+<section class="section" id="editing">
+  <div class="container">
+    <div class="section-head"><span class="section-tag">Section 1 • Editing Studio</span><h2>Editing — Everything Included</h2><p>Reels, vlogs, product videos, photo retouching — select a service, see the price instantly, and place your order.</p></div>
+    <div class="cards-3">
+      <div class="service-card"><div class="icon red"><i class="fa-solid fa-mobile-screen"></i></div><h3>Reels / Shorts — from ₹499</h3><p>Trending cuts, captions, hooks, color grading, sound sync. Delivery in 24-48 hours.</p><span class="tag">Most Popular</span></div>
+      <div class="service-card"><div class="icon blue"><i class="fa-solid fa-video"></i></div><h3>Vlog / YouTube — from ₹1499</h3><p>Long-form editing, thumbnail, chapters, end screen. Delivery in 3-5 days.</p><span class="tag">Thumbnail Free</span></div>
+      <div class="service-card"><div class="icon green"><i class="fa-solid fa-image"></i></div><h3>Photo Retouch — ₹99/photo</h3><p>Product, portrait, background change, Instagram grid design.</p><span class="tag">Bulk Discount</span></div>
+    </div>
+    <div class="form-wrap grid-2 form-wrap-grid" style="margin-top:22px">
+      <div class="calc-box">
+        <h3>Price Calculator</h3>
+        <label for="eService">Service</label>
+        <select id="eService"><option value="499">Reel / Shorts (₹499)</option><option value="1499">Vlog / YouTube (₹1499)</option><option value="99">Photo Retouch (₹99/photo)</option><option value="999">Product Ad (₹999)</option><option value="2999">Wedding Highlight (₹2999)</option></select>
+        <label for="eQty">Quantity</label>
+        <input type="number" id="eQty" value="1" min="1" max="100" inputmode="numeric" />
+        <label class="check-inline"><input type="checkbox" id="eUrgent" /> Urgent delivery (+50%)</label>
+        <div class="total">Total: <b id="eTotal">₹499</b></div>
+      </div>
+      <form class="booking-form" id="editForm" novalidate>
+        <h3>Place an Editing Order</h3>
+        <input required id="edName" placeholder="Your name *" autocomplete="name" />
+        <input required id="edPhone" placeholder="WhatsApp number *" inputmode="tel" autocomplete="tel" />
+        <input id="edLink" placeholder="Raw video / drive link" inputmode="url" />
+        <textarea id="edNote" rows="3" placeholder="Describe your requirement: style, song, duration..."></textarea>
+        <button type="submit" class="btn btn-primary btn-block">Send Order <i class="fa-solid fa-check"></i></button>
+        <p id="editMsg" class="ref-msg" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SHOOTING -->
+<section class="section light" id="shooting">
+  <div class="container">
+    <div class="section-head"><span class="section-tag">Section 2 • Shooting</span><h2>Book a Professional Shoot</h2><p>Cameraman, studio, product shoot, reel shoot — choose a date and our team will handle the rest.</p></div>
+    <div class="cards-3">
+      <div class="service-card"><div class="icon orange"><i class="fa-solid fa-person-booth"></i></div><h3>Reel Shoot — ₹1999</h3><p>2 hours, 3 reels, 1 location, phone + lighting setup.</p></div>
+      <div class="service-card"><div class="icon purple"><i class="fa-solid fa-camera"></i></div><h3>Product Shoot — ₹3499</h3><p>20 photos + 2 reels, white background, model optional.</p></div>
+      <div class="service-card"><div class="icon teal"><i class="fa-solid fa-film"></i></div><h3>Vlog / Event — ₹7999/day</h3><p>Full-day cameraman + mic + basic editing included.</p></div>
+    </div>
+    <form class="booking-form" id="shootForm" style="margin-top:20px" novalidate>
+      <h3>Book Your Shoot</h3>
+      <div class="form-row"><div><label for="shName">Name *</label><input required id="shName" autocomplete="name" /></div><div><label for="shCity">City *</label><input required id="shCity" placeholder="Delhi / Mumbai..." autocomplete="address-level2" /></div></div>
+      <div class="form-row"><div><label for="shType">Shoot Type *</label><select id="shType"><option>Reel Shoot</option><option>Product Shoot</option><option>Vlog / Event</option><option>Portfolio / Fashion</option></select></div><div><label for="shDate">Date *</label><input type="date" id="shDate" required /></div></div>
+      <button type="submit" class="btn btn-primary btn-block">Send Booking Request</button>
+      <p id="shootMsg" class="ref-msg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="section" id="courses">
+  <div class="container">
+    <div class="section-head"><span class="section-tag">Section 3 • Courses</span><h2>Learn and Grow Faster</h2><p>Simple, practical courses — from editing to landing brand deals.</p></div>
+    <div class="cards-3">
+      <div class="service-card"><div class="icon red"><i class="fa-solid fa-scissors"></i></div><h3>Mobile Editing Masterclass — ₹999</h3><p>CapCut + VN + captions + viral hooks. 20 lessons. Certificate included.</p><button type="button" class="btn btn-dark btn-block" onclick="enroll('Mobile Editing Masterclass')">Enroll <i class="fa-solid fa-arrow-right"></i></button></div>
+      <div class="service-card"><div class="icon blue"><i class="fa-solid fa-rocket"></i></div><h3>0 to 100K Growth — ₹1499</h3><p>Niche selection, content calendar, algorithm, collaboration pitch. Live doubt sessions.</p><button type="button" class="btn btn-dark btn-block" onclick="enroll('0 to 100K Growth')">Enroll <i class="fa-solid fa-arrow-right"></i></button></div>
+      <div class="service-card"><div class="icon green"><i class="fa-solid fa-handshake"></i></div><h3>Brand Deals + Agency — ₹1999</h3><p>Rate card, media kit, contracts, working with agencies. Complete freelance setup.</p><button type="button" class="btn btn-dark btn-block" onclick="enroll('Brand Deal + Agency')">Enroll <i class="fa-solid fa-arrow-right"></i></button></div>
+    </div>
+    <p id="courseMsg" class="ref-msg" style="text-align:center;margin-top:14px" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="section light" id="problem">
+  <div class="container grid-2">
+    <div>
+      <span class="section-tag">Section 4 • Help Desk</span>
+      <h2>Send Us Your Problem</h2>
+      <p>Account issues, stuck payments, brand payment disputes, video strikes, editing revisions — write it here and we will reply within 24 hours.</p>
+      <ul class="check-list"><li><i class="fa-solid fa-check"></i> You get a ticket number</li><li><i class="fa-solid fa-check"></i> Updates on WhatsApp</li><li><i class="fa-solid fa-check"></i> Private — only you and our team can see it</li></ul>
+      <div class="mytickets"><h4>My Tickets (<span id="tCount">0</span>)</h4><div id="ticketList"></div></div>
+    </div>
+    <form class="booking-form" id="probForm" novalidate>
+      <h3>Problem Form</h3>
+      <input required id="pName" placeholder="Your name *" autocomplete="name" />
+      <input required id="pPhone" placeholder="WhatsApp number *" inputmode="tel" autocomplete="tel" />
+      <select id="pCat"><option>Editing Revision</option><option>Payment / Refund</option><option>Account / Strike / Ban</option><option>Brand Deal Dispute</option><option>Shooting Issue</option><option>Other</option></select>
+      <textarea required id="pDesc" rows="4" placeholder="Describe your problem in detail..."></textarea>
+      <button type="submit" class="btn btn-primary btn-block">Send Problem <i class="fa-solid fa-life-ring"></i></button>
+      <p id="probMsg" class="ref-msg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- AGENCY -->
+<section class="section" id="agency">
+  <div class="container">
+    <div class="section-head"><span class="section-tag">Section 5 • Agency Work (Part-Time)</span><h2>Work with Multiple Agencies</h2><p>Separate boards for influencers, editors, and shooters. You can work part-time with any or all agencies.</p></div>
+    <div class="tabs" role="tablist"><button type="button" class="tab active" onclick="switchTab('inf',this)">For Influencers</button><button type="button" class="tab" onclick="switchTab('edit',this)">For Editors</button><button type="button" class="tab" onclick="switchTab('ag',this)">For Agencies</button></div>
+    <div id="tab-inf" class="tabpane">
+      <div class="cards-3">
+        <div class="job"><h4>Skincare Reel — ₹3,000</h4><p>GlowKart Agency • 1 reel + 2 stories • 10K+ followers</p><button type="button" onclick="apply('Skincare Reel')">Apply</button></div>
+        <div class="job"><h4>Food Vlog — ₹5,000</h4><p>Foodie Partners • YouTube short + Instagram reel • Delhi</p><button type="button" onclick="apply('Food Vlog')">Apply</button></div>
+        <div class="job"><h4>Fashion Haul — ₹4,500</h4><p>StyleHub • 3 reels • Pan India</p><button type="button" onclick="apply('Fashion Haul')">Apply</button></div>
+      </div>
+    </div>
+    <div id="tab-edit" class="tabpane" style="display:none">
+      <div class="cards-3">
+        <div class="job"><h4>10 Reels Editing — ₹4,999</h4><p>CutCrew • Weekly work • Remote</p><button type="button" onclick="apply('10 Reels Edit')">Apply</button></div>
+        <div class="job"><h4>Wedding Teaser — ₹6,000</h4><p>Shaadi Films • Premiere Pro • Remote</p><button type="button" onclick="apply('Wedding Teaser')">Apply</button></div>
+        <div class="job"><h4>Thumbnail Pack — ₹1,500</h4><p>TubeBoost • 15 thumbnails • Remote</p><button type="button" onclick="apply('Thumbnail Pack')">Apply</button></div>
+      </div>
+    </div>
+    <div id="tab-ag" class="tabpane" style="display:none">
+      <form class="booking-form" id="agencyForm" novalidate>
+        <h3>Agencies — Post Work Here</h3>
+        <div class="form-row"><div><label for="aName">Agency Name *</label><input required id="aName" /></div><div><label for="aType">Work Type *</label><select id="aType"><option>Influencer Needed</option><option>Editor Needed</option><option>Shooter Needed</option></select></div></div>
+        <div class="form-row"><div><label for="aBudget">Budget (₹) *</label><input required id="aBudget" type="number" min="100" inputmode="numeric" /></div><div><label for="aDate">Last Date</label><input type="date" id="aDate" /></div></div>
+        <textarea id="aDesc" rows="3" placeholder="Work details..."></textarea>
+        <button type="submit" class="btn btn-primary btn-block">Post Work</button>
+        <p id="agencyMsg" class="ref-msg" aria-live="polite"></p>
+      </form>
+      <div id="postedJobs" class="posted-jobs" style="margin-top:16px"></div>
+    </div>
+    <p id="applyMsg" class="ref-msg" style="text-align:center;margin-top:12px" aria-live="polite"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-brand"><div class="logo logo-light"><div class="logo-mark">S</div><div><strong>SONALI CREATOR HUB</strong><small>Creator Support Platform</small></div></div><p>Editing • Shooting • Courses • Support • Agency Work — upgraded regularly over time.</p></div>
+    <div><h4>Sections</h4><a href="#editing">Editing</a><a href="#shooting">Shooting</a><a href="#courses">Courses</a><a href="#problem">Support</a></div>
+    <div><h4>Work</h4><a href="#agency">Part-Time Jobs</a><a href="#ai">AI Chat</a><a href="#home">Home</a></div>
+    <div><h4>Contact</h4><span>WhatsApp Support</span><span>Mon–Sat 10am–8pm</span><span>Pan India • Remote + On-site</span></div>
+  </div>
+  <div class="footer-bottom">© 2026 Sonali Creator Hub • Built for Creators • AI + Human Support</div>
+</footer>
+
+<button type="button" class="chat-fab" onclick="document.getElementById('ai').scrollIntoView({behavior:'smooth'})" aria-label="Go to AI chat"><i class="fa-solid fa-robot"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>
