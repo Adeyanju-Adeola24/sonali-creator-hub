@@ -43,6 +43,7 @@ section{scroll-margin-top:90px}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;gap:12px;position:relative}
 .logo{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--dark);min-width:0}
 .logo-mark{width:46px;height:46px;border-radius:15px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.4rem;box-shadow:0 8px 24px rgba(124,58,237,.4);position:relative;flex-shrink:0}
+.logo-img{width:46px;height:46px;border-radius:14px;flex-shrink:0;box-shadow:0 8px 24px rgba(124,58,237,.4);display:block}
 .logo-tcs{font-size:.95rem!important;letter-spacing:.5px;padding:0 6px;width:auto!important;min-width:62px}
 .logo strong{display:block;font-size:.92rem;letter-spacing:.3px;white-space:nowrap}
 .logo small{color:var(--muted);font-size:.7rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:220px}
@@ -347,6 +348,7 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
   .logo strong{font-size:.82rem}
   .logo small{max-width:150px;font-size:.64rem}
   .logo-mark{width:40px;height:40px;font-size:1.15rem}
+  .logo-img{width:40px;height:40px}
   .nav-cta-text{display:none}
   .nav-cta-short{display:inline}
   .nav-cta-btn{padding:10px 16px;font-size:.85rem}
