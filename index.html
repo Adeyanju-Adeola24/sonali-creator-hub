@@ -27,12 +27,11 @@
     <a href="#home" class="logo" aria-label="TCS The Creator Society home"><div class="logo-mark logo-tcs">TCS</div><div><strong>TCS • THE CREATOR SOCIETY</strong><small>Editing • Shooting • Courses • Agency Work</small></div></a>
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
       <a href="#home" class="active">Home</a>
-      <a href="#ai">AI Chat</a>
       <a href="#services">Services</a>
+      <a href="#tools">AI Tools</a>
       <a href="#editing">Editing</a>
       <a href="#shooting">Shooting</a>
       <a href="#courses">Courses</a>
-      <a href="#problem">Support</a>
       <a href="#agency">Agency Work</a>
       <a href="#founders">Founders</a>
     </nav>
@@ -51,13 +50,14 @@
       <h1>Everything an Influencer Needs — <span>In One Website.</span></h1>
       <p>Strategy, production, editing, social media, branding, SEO, monetization, brand deals, podcasts, AI workflows, management and global expansion — explore <b>12 professional service categories</b> with dedicated support for each. Send your requirement, learn with courses, and earn with agency work.</p>
       <div class="hero-btns">
-        <a href="#ai" class="btn btn-primary"><i class="fa-solid fa-robot"></i> Chat with AI</a>
-        <a href="#editing" class="btn btn-outline"><i class="fa-solid fa-scissors"></i> Order Editing</a>
+        <a href="#agency" class="btn btn-primary"><i class="fa-solid fa-star"></i> I am a Creator</a>
+        <a href="#agency" class="btn btn-outline" onclick="setTimeout(()=>switchTab('ag',document.querySelector('#agency .tab:last-child')),100)"><i class="fa-solid fa-briefcase"></i> I am a Brand</a>
       </div>
+      <div class="hero-proof"><span class="stars">★★★★★</span> <b>4.9/5</b> from 500+ creators • 5400+ projects delivered</div>
       <div class="hero-stats">
-        <div><strong>500+</strong><span>Creators</span></div>
-        <div><strong>5400+</strong><span>Projects Delivered</span></div>
-        <div><strong>40+</strong><span>Agencies</span></div>
+        <div><strong><span class="count" data-count="500">0</span>+</strong><span>Creators</span></div>
+        <div><strong><span class="count" data-count="5400">0</span>+</strong><span>Projects Delivered</span></div>
+        <div><strong><span class="count" data-count="40">0</span>+</strong><span>Agencies</span></div>
       </div>
     </div>
     <div class="hero-card">
@@ -75,6 +75,14 @@
     </div>
   </div>
 </section>
+
+<!-- BRAND MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>GlowKart</span><i>✦</i><span>StyleHub</span><i>✦</i><span>Foodie Partners</span><i>✦</i><span>CutCrew</span><i>✦</i><span>TubeBoost</span><i>✦</i><span>Shaadi Films</span><i>✦</i><span>CreatorX</span><i>✦</i><span>BrightSkin</span><i>✦</i><span>UrbanFit</span><i>✦</i><span>Melodykart</span><i>✦</i>
+    <span>GlowKart</span><i>✦</i><span>StyleHub</span><i>✦</i><span>Foodie Partners</span><i>✦</i><span>CutCrew</span><i>✦</i><span>TubeBoost</span><i>✦</i><span>Shaadi Films</span><i>✦</i><span>CreatorX</span><i>✦</i><span>BrightSkin</span><i>✦</i><span>UrbanFit</span><i>✦</i><span>Melodykart</span><i>✦</i>
+  </div>
+</div>
 
 <!-- AI SECTION -->
 <section class="section light" id="ai">
@@ -125,6 +133,39 @@
       <div class="service-cat"><div class="service-cat-top"><div class="icon orange"><i class="fa-solid fa-briefcase"></i></div><h3>Creator Management</h3><span class="service-cat-num">11</span></div><ul><li>Full Creator Management</li><li>Content Management</li><li>Brand Deal Management</li><li>Community Management</li><li>Analytics Management</li><li>Creator Business Setup</li></ul><button type="button" class="link-btn" onclick="askAI('I need creator management')">Order Service →</button></div>
       <div class="service-cat"><div class="service-cat-top"><div class="icon teal"><i class="fa-solid fa-globe"></i></div><h3>Global Services</h3><span class="service-cat-num">12</span></div><ul><li>Multi-Language Content</li><li>Translation + Localization</li><li>Global Audience Growth</li><li>International Brand Deals</li><li>Global Campaigns</li><li>Global Expansion</li></ul><button type="button" class="link-btn" onclick="askAI('I need global creator services')">Order Service →</button></div>
     </div>
+  </div>
+</section>
+
+<!-- TRENDING + AI TOOLS DIRECTORY -->
+<section class="section light" id="tools">
+  <div class="container">
+    <div class="section-head"><span class="section-tag">🔥 This Week • Trending</span><h2>Top 5 Trending AI Tools for Creators</h2><p>The most-used AI tools by our creators this week — for video, voice and growth.</p></div>
+    <div class="trending-grid">
+      <div class="trend-card"><span class="rank">1</span><div class="trend-icon"><i class="fa-solid fa-scissors"></i></div><h3>Opus Clip</h3><p>Turns long videos into viral shorts automatically with hooks + captions.</p><span class="trend-cat">Video</span></div>
+      <div class="trend-card"><span class="rank">2</span><div class="trend-icon"><i class="fa-solid fa-microphone"></i></div><h3>ElevenLabs</h3><p>Studio-quality AI voiceovers and voice cloning in 30+ languages.</p><span class="trend-cat">Voice</span></div>
+      <div class="trend-card"><span class="rank">3</span><div class="trend-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>Higgsfield AI</h3><p>Cinematic AI video generation for ads, reels and product films.</p><span class="trend-cat">Video</span></div>
+      <div class="trend-card"><span class="rank">4</span><div class="trend-icon"><i class="fa-solid fa-chart-line"></i></div><h3>vidIQ</h3><p>Keyword research, title scores and upload-time intelligence for YouTube.</p><span class="trend-cat">Growth</span></div>
+      <div class="trend-card"><span class="rank">5</span><div class="trend-icon"><i class="fa-solid fa-user-astronaut"></i></div><h3>HeyGen</h3><p>AI avatar presenters — faceless videos with a human face.</p><span class="trend-cat">Video</span></div>
+    </div>
+    <div class="dir-head">
+      <div>
+        <span class="section-tag">AI Tools Directory</span>
+        <h2>Explore Creator AI Tools</h2>
+        <p>Search and filter the tools our team uses and recommends. Full guidance inside our courses.</p>
+      </div>
+      <div class="dir-search"><i class="fa-solid fa-magnifying-glass"></i><input id="toolSearch" placeholder="Search tools... e.g. voice, caption" aria-label="Search AI tools" autocomplete="off" /></div>
+    </div>
+    <div class="dir-pills" id="toolPills">
+      <button type="button" class="dtab active" data-cat="All">All</button>
+      <button type="button" class="dtab" data-cat="Video">Video</button>
+      <button type="button" class="dtab" data-cat="Voice">Voice</button>
+      <button type="button" class="dtab" data-cat="Design">Design</button>
+      <button type="button" class="dtab" data-cat="Writing">Writing</button>
+      <button type="button" class="dtab" data-cat="Growth">Growth</button>
+      <button type="button" class="dtab" data-cat="Productivity">Productivity</button>
+    </div>
+    <div class="tools-grid" id="toolsGrid"></div>
+    <p class="dir-count" id="toolsCount"></p>
   </div>
 </section>
 
@@ -245,6 +286,60 @@
       <div id="postedJobs" class="posted-jobs" style="margin-top:16px"></div>
     </div>
     <p id="applyMsg" class="ref-msg" style="text-align:center;margin-top:12px" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-head"><span class="section-tag">How TCS Works</span><h2>Discover. Create. Convert.</h2><p>One pipeline from idea to income — the same system top creator agencies run on.</p></div>
+    <div class="process-grid">
+      <div class="process-card"><span class="pnum">01</span><div class="icon purple"><i class="fa-solid fa-compass"></i></div><h3>Discover</h3><p>Niche + audience research, competitor mapping and creator–brand matching. The right voice, before a rupee is spent.</p></div>
+      <div class="process-arrow">→</div>
+      <div class="process-card"><span class="pnum">02</span><div class="icon red"><i class="fa-solid fa-clapperboard"></i></div><h3>Create</h3><p>Script, shoot and edit in creator-native formats — reels, vlogs, UGC and podcasts with full usage rights.</p></div>
+      <div class="process-arrow">→</div>
+      <div class="process-card"><span class="pnum">03</span><div class="icon green"><i class="fa-solid fa-chart-line"></i></div><h3>Convert</h3><p>SEO, posting, paid amplification and brand deals — then clear reporting on views, growth and revenue.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section dark-sec" id="results">
+  <div class="container">
+    <div class="section-head"><span class="section-tag dark-tag">Results • Case Studies</span><h2 class="light-h">Work That Performs</h2><p class="dim">Real campaigns, real numbers — because pretty content without performance is just decoration.</p></div>
+    <div class="cards-3">
+      <div class="metric-card"><strong>8.4M</strong><span>views • GlowKart skincare launch with 32 creators</span><em>3.1x ROAS on Spark Ads</em></div>
+      <div class="metric-card"><strong>+212%</strong><span>follower growth in 90 days • Foodie Partners shorts engine</span><em>18 creators • 140 videos</em></div>
+      <div class="metric-card"><strong>202%</strong><span>return on spend • StyleHub fashion haul series</span><em>56% CTR uplift vs brand ads</em></div>
+    </div>
+    <div class="cards-3 quotes">
+      <div class="quote-card"><p>"First reel edit was free and genuinely good. My reach tripled in two months."</p><strong>— Priya S.</strong><small>Fashion Creator • 85K followers</small></div>
+      <div class="quote-card"><p>"They scripted, shot and edited everything. I just posted. Brand deals followed."</p><strong>— Rahul V.</strong><small>Food Vlogger • 120K subscribers</small></div>
+      <div class="quote-card"><p>"Weekly edits on time, every time. Best decision for my channel this year."</p><strong>— Anita D.</strong><small>Podcast Host • 40K listeners</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section light" id="faq">
+  <div class="container narrow">
+    <div class="section-head"><span class="section-tag">FAQ</span><h2>Questions? Answered.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><button type="button" class="faq-q">How much does editing cost? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Reels from ₹499, vlogs from ₹1499, photos ₹99 each. Use the Editing price calculator for an exact quote — urgent delivery adds 50%.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q">How fast is delivery? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Reels in 24–48 hours, vlogs in 3–5 days. Urgent slots deliver in half the time.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q">Do I get revisions? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Yes — 2 free revision rounds on every order. Paid edits continue until you are happy.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q">How do agency payouts work? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Apply on the Agency Work board, complete the brief, get paid weekly or monthly via UPI after approval.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q">Do you work outside my city? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Editing, courses and support are fully remote across India. Shoots are arranged with local teams in your city.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q">How do courses work? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Click Enroll, pay on WhatsApp, get instant login with lifetime access, certificate and live doubt sessions.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DUAL CTA -->
+<section class="cta-band">
+  <div class="container cta-grid">
+    <div class="cta-box"><h2>Are you a Creator?</h2><p>Join 500+ creators getting edits, shoots, courses and paid brand work.</p><a href="#agency" class="btn btn-primary">Find Work <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="cta-box alt"><h2>Are you a Brand?</h2><p>Launch creator campaigns with vetted talent, content rights and reporting.</p><a href="#agency" class="btn btn-dark" onclick="setTimeout(()=>switchTab('ag',document.querySelector('#agency .tab:last-child')),100)">Post Work <i class="fa-solid fa-arrow-right"></i></a></div>
   </div>
 </section>
 

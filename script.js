@@ -24,7 +24,7 @@ document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click
 }));
 
 // Active nav on scroll
-const sections = ['home','ai','services','editing','shooting','courses','problem','agency','founders'];
+const sections = ['home','ai','services','tools','editing','shooting','courses','process','problem','agency','results','faq','founders'];
 window.addEventListener('scroll', () => {
   let current = 'home';
   sections.forEach(id => {
@@ -111,6 +111,8 @@ const INTENTS = [
  { id:'monetization', keys:['monetiz','sponsor','brand deal','affiliate','merch','membership','earn money'], reply:"<b>Monetization:</b> YouTube monetization, sponsorships, brand deals, affiliate, digital products, course launch, memberships. Start with the Brand Deals course or " + secLink('services','Services') + " → Monetization." },
  { id:'podcast', keys:['podcast'], reply:"<b>Podcast:</b> strategy, setup, recording, production, editing, branding, distribution, clips + marketing. Order from " + secLink('services','Services') + " → Podcast card." },
  { id:'ai_tech', keys:['ai','automation','avatar','voice','ai video','ai tool'], reply:"<b>AI & Creator Tech:</b> AI content strategy, AI video, AI scripts/thumbnails, AI voice, AI avatars, repurposing + workflow automation. This chat itself is a demo — full WhatsApp/Instagram automation coming soon." },
+ { id:'tools', keys:['ai tool','ai tools','tool directory','opus','elevenlabs','higgsfield','heygen','descript','midjourney','runway','vidiq','tubebuddy','trending tool'], reply:"Check the <b>AI Tools Directory</b> " + secLink('tools','here') + " — Top 5 trending (Opus Clip, ElevenLabs, Higgsfield, vidIQ, HeyGen) plus 18 searchable tools across Video, Voice, Design, Writing, Growth and Productivity. Which task do you need a tool for?" },
+ { id:'process', keys:['process','how it works','how tcs works','discover','convert','workflow','steps'], reply:"<b>How TCS works:</b><br>1. <b>Discover</b> — niche + audience research, creator matching<br>2. <b>Create</b> — script, shoot, edit with full rights<br>3. <b>Convert</b> — SEO, deals, amplification + reporting.<br>See " + secLink('process','the process') + "." },
  { id:'founders', keys:['founder','owner','tom','tcs','samridhi','who owns','team','who are you run'], reply:"Our founders: <b>Tom (Owner & Founder)</b> — strategy & YouTube growth, and <b>Samridhi Singh (Co-Founder)</b> — operations & brand deals. They work privately behind the scenes (introvert-friendly). Contact via this hub: " + secLink('founders','Founders') + "." },
  { id:'offer', keys:['offer','discount','coupon','promo','free','deal','sonali20'], reply:"Today's offer: first reel edit <b>FREE</b> + <b>20% OFF</b> on shooting with code <b>TCS20</b>. Mention the code in any form or chat." },
  { id:'timing', keys:['timing','time','open','working hours','when','available','holiday'], reply:"We work <b>Mon–Sat, 10am–8pm</b>. AI replies 24x7. Humans reply on WhatsApp within working hours, support tickets within 24 hours." },
@@ -273,4 +275,89 @@ if (agencyForm) agencyForm.addEventListener('submit', function(e) {
   document.getElementById('postedJobs').prepend(div);
   document.getElementById('agencyMsg').textContent = 'Work posted successfully! Influencers/editors can now apply.';
   this.reset();
+});
+
+// ---- AI TOOLS DIRECTORY ----
+const TOOLS = [
+ { n:'Opus Clip', c:'Video', p:'Freemium', r:'4.8', d:'Long videos to viral shorts with auto hooks + captions.' },
+ { n:'ElevenLabs', c:'Voice', p:'Freemium', r:'4.9', d:'Studio AI voiceover + cloning in 30+ languages.' },
+ { n:'Higgsfield AI', c:'Video', p:'Paid', r:'4.7', d:'Cinematic AI video for ads and reels.' },
+ { n:'HeyGen', c:'Video', p:'Freemium', r:'4.7', d:'AI avatar presenters for faceless videos.' },
+ { n:'Descript', c:'Video', p:'Freemium', r:'4.6', d:'Edit video by editing text + filler removal.' },
+ { n:'CapCut', c:'Video', p:'Free', r:'4.8', d:'Free mobile/desktop editor with auto-captions.' },
+ { n:'Midjourney', c:'Design', p:'Paid', r:'4.8', d:'Best-in-class AI art for thumbnails + branding.' },
+ { n:'Leonardo AI', c:'Design', p:'Freemium', r:'4.6', d:'Game-style art + thumbnails with control.' },
+ { n:'Canva Magic', c:'Design', p:'Freemium', r:'4.7', d:'Text-to-design posts, decks and brand kits.' },
+ { n:'ChatGPT', c:'Writing', p:'Freemium', r:'4.9', d:'Scripts, hooks, captions and content calendars.' },
+ { n:'Claude', c:'Writing', p:'Freemium', r:'4.8', d:'Long-form scripts + nuanced brand voice.' },
+ { n:'vidIQ', c:'Growth', p:'Freemium', r:'4.6', d:'YouTube keywords, title scores, best upload time.' },
+ { n:'TubeBuddy', c:'Growth', p:'Freemium', r:'4.5', d:'A/B titles, tags and competitor tracking.' },
+ { n:'Metricool', c:'Growth', p:'Freemium', r:'4.6', d:'Schedule + analytics across all platforms.' },
+ { n:'Notion AI', c:'Productivity', p:'Paid', r:'4.6', d:'Content calendars, SOPs and second brain.' },
+ { n:'Suno', c:'Voice', p:'Freemium', r:'4.7', d:'Royalty-friendly AI music for vlogs + ads.' },
+ { n:'Runway', c:'Video', p:'Freemium', r:'4.6', d:'Green-screen, inpainting + Gen video models.' },
+ { n:'Framer AI', c:'Productivity', p:'Free', r:'4.5', d:'Creator websites generated from a prompt.' }
+];
+let toolCat = 'All', toolQ = '';
+function renderTools() {
+  const grid = document.getElementById('toolsGrid');
+  const count = document.getElementById('toolsCount');
+  if (!grid) return;
+  const list = TOOLS.filter(t =>
+    (toolCat === 'All' || t.c === toolCat) &&
+    (t.n + ' ' + t.c + ' ' + t.d).toLowerCase().includes(toolQ)
+  );
+  grid.innerHTML = list.length ? list.map(t =>
+    '<div class="tool-card"><div class="tool-top"><div class="tool-logo">' + escapeHtml(t.n[0]) + '</div><h3>' + escapeHtml(t.n) + '</h3></div>' +
+    '<p>' + escapeHtml(t.d) + '</p><div class="tool-meta"><span class="c">' + t.c + '</span><span class="p">' + t.p + '</span><span class="r">★ ' + t.r + '</span></div></div>'
+  ).join('') : '<p style="grid-column:1/-1;text-align:center;color:var(--muted)">No tools match. Try another search.</p>';
+  if (count) count.textContent = 'Showing ' + list.length + ' of ' + TOOLS.length + ' creator tools';
+}
+const toolSearch = document.getElementById('toolSearch');
+if (toolSearch) toolSearch.addEventListener('input', () => { toolQ = toolSearch.value.trim().toLowerCase(); renderTools(); });
+document.querySelectorAll('#toolPills .dtab').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#toolPills .dtab').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  toolCat = b.dataset.cat;
+  renderTools();
+}));
+renderTools();
+
+// ---- Animated counters ----
+const counters = document.querySelectorAll('.count');
+if ('IntersectionObserver' in window && counters.length) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const el = en.target, target = parseInt(el.dataset.count) || 0;
+      io.unobserve(el);
+      const t0 = performance.now(), dur = 1400;
+      (function tick(t) {
+        const k = Math.min((t - t0) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3))).toLocaleString('en-IN');
+        if (k < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }, { threshold: .5 });
+  counters.forEach(c => io.observe(c));
+} else {
+  counters.forEach(c => c.textContent = (parseInt(c.dataset.count) || 0).toLocaleString('en-IN'));
+}
+
+// ---- FAQ accordion ----
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+      o.querySelector('.faq-a').classList.remove('pad');
+    });
+    if (!open) {
+      item.classList.add('open');
+      a.classList.add('pad');
+      a.style.maxHeight = a.scrollHeight + 40 + 'px';
+    }
+  });
 });
