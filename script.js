@@ -279,24 +279,24 @@ if (agencyForm) agencyForm.addEventListener('submit', function(e) {
 
 // ---- AI TOOLS DIRECTORY ----
 const TOOLS = [
- { n:'Opus Clip', c:'Video', p:'Freemium', r:'4.8', d:'Long videos to viral shorts with auto hooks + captions.' },
- { n:'ElevenLabs', c:'Voice', p:'Freemium', r:'4.9', d:'Studio AI voiceover + cloning in 30+ languages.' },
- { n:'Higgsfield AI', c:'Video', p:'Paid', r:'4.7', d:'Cinematic AI video for ads and reels.' },
- { n:'HeyGen', c:'Video', p:'Freemium', r:'4.7', d:'AI avatar presenters for faceless videos.' },
- { n:'Descript', c:'Video', p:'Freemium', r:'4.6', d:'Edit video by editing text + filler removal.' },
- { n:'CapCut', c:'Video', p:'Free', r:'4.8', d:'Free mobile/desktop editor with auto-captions.' },
- { n:'Midjourney', c:'Design', p:'Paid', r:'4.8', d:'Best-in-class AI art for thumbnails + branding.' },
- { n:'Leonardo AI', c:'Design', p:'Freemium', r:'4.6', d:'Game-style art + thumbnails with control.' },
- { n:'Canva Magic', c:'Design', p:'Freemium', r:'4.7', d:'Text-to-design posts, decks and brand kits.' },
- { n:'ChatGPT', c:'Writing', p:'Freemium', r:'4.9', d:'Scripts, hooks, captions and content calendars.' },
- { n:'Claude', c:'Writing', p:'Freemium', r:'4.8', d:'Long-form scripts + nuanced brand voice.' },
- { n:'vidIQ', c:'Growth', p:'Freemium', r:'4.6', d:'YouTube keywords, title scores, best upload time.' },
- { n:'TubeBuddy', c:'Growth', p:'Freemium', r:'4.5', d:'A/B titles, tags and competitor tracking.' },
- { n:'Metricool', c:'Growth', p:'Freemium', r:'4.6', d:'Schedule + analytics across all platforms.' },
- { n:'Notion AI', c:'Productivity', p:'Paid', r:'4.6', d:'Content calendars, SOPs and second brain.' },
- { n:'Suno', c:'Voice', p:'Freemium', r:'4.7', d:'Royalty-friendly AI music for vlogs + ads.' },
- { n:'Runway', c:'Video', p:'Freemium', r:'4.6', d:'Green-screen, inpainting + Gen video models.' },
- { n:'Framer AI', c:'Productivity', p:'Free', r:'4.5', d:'Creator websites generated from a prompt.' }
+ { n:'Opus Clip', c:'Video', p:'Freemium', r:'4.8', d:'Long videos to viral shorts with auto hooks + captions.', i:'fa-solid fa-scissors', g:['#ef4444','#f97316'] },
+ { n:'ElevenLabs', c:'Voice', p:'Freemium', r:'4.9', d:'Studio AI voiceover + cloning in 30+ languages.', i:'fa-solid fa-microphone', g:['#7c3aed','#ec4899'] },
+ { n:'Higgsfield AI', c:'Video', p:'Paid', r:'4.7', d:'Cinematic AI video for ads and reels.', i:'fa-solid fa-wand-magic-sparkles', g:['#8b5cf6','#6366f1'] },
+ { n:'HeyGen', c:'Video', p:'Freemium', r:'4.7', d:'AI avatar presenters for faceless videos.', i:'fa-solid fa-user-astronaut', g:['#3b82f6','#06b6d4'] },
+ { n:'Descript', c:'Video', p:'Freemium', r:'4.6', d:'Edit video by editing text + filler removal.', i:'fa-solid fa-keyboard', g:['#14b8a6','#3b82f6'] },
+ { n:'CapCut', c:'Video', p:'Free', r:'4.8', d:'Free mobile/desktop editor with auto-captions.', i:'fa-solid fa-clapperboard', g:['#111827','#4b5563'] },
+ { n:'Midjourney', c:'Design', p:'Paid', r:'4.8', d:'Best-in-class AI art for thumbnails + branding.', i:'fa-solid fa-palette', g:['#6366f1','#a855f7'] },
+ { n:'Leonardo AI', c:'Design', p:'Freemium', r:'4.6', d:'Game-style art + thumbnails with control.', i:'fa-solid fa-shapes', g:['#06b6d4','#8b5cf6'] },
+ { n:'Canva Magic', c:'Design', p:'Freemium', r:'4.7', d:'Text-to-design posts, decks and brand kits.', i:'fa-solid fa-pen-nib', g:['#10b981','#14b8a6'] },
+ { n:'ChatGPT', c:'Writing', p:'Freemium', r:'4.9', d:'Scripts, hooks, captions and content calendars.', i:'fa-solid fa-comments', g:['#16a34a','#65a30d'] },
+ { n:'Claude', c:'Writing', p:'Freemium', r:'4.8', d:'Long-form scripts + nuanced brand voice.', i:'fa-solid fa-brain', g:['#f59e0b','#ef4444'] },
+ { n:'vidIQ', c:'Growth', p:'Freemium', r:'4.6', d:'YouTube keywords, title scores, best upload time.', i:'fa-solid fa-chart-line', g:['#ef4444','#ec4899'] },
+ { n:'TubeBuddy', c:'Growth', p:'Freemium', r:'4.5', d:'A/B titles, tags and competitor tracking.', i:'fa-solid fa-bullseye', g:['#3b82f6','#8b5cf6'] },
+ { n:'Metricool', c:'Growth', p:'Freemium', r:'4.6', d:'Schedule + analytics across all platforms.', i:'fa-solid fa-calendar-days', g:['#16a34a','#14b8a6'] },
+ { n:'Notion AI', c:'Productivity', p:'Paid', r:'4.6', d:'Content calendars, SOPs and second brain.', i:'fa-solid fa-note-sticky', g:['#334155','#64748b'] },
+ { n:'Suno', c:'Voice', p:'Freemium', r:'4.7', d:'Royalty-friendly AI music for vlogs + ads.', i:'fa-solid fa-music', g:['#ec4899','#f43f5e'] },
+ { n:'Runway', c:'Video', p:'Freemium', r:'4.6', d:'Green-screen, inpainting + Gen video models.', i:'fa-solid fa-photo-film', g:['#84cc16','#14b8a6'] },
+ { n:'Framer AI', c:'Productivity', p:'Free', r:'4.5', d:'Creator websites generated from a prompt.', i:'fa-solid fa-globe', g:['#0ea5e9','#6366f1'] }
 ];
 let toolCat = 'All', toolQ = '';
 function renderTools() {
@@ -308,7 +308,7 @@ function renderTools() {
     (t.n + ' ' + t.c + ' ' + t.d).toLowerCase().includes(toolQ)
   );
   grid.innerHTML = list.length ? list.map(t =>
-    '<div class="tool-card"><div class="tool-top"><div class="tool-logo">' + escapeHtml(t.n[0]) + '</div><h3>' + escapeHtml(t.n) + '</h3></div>' +
+    '<div class="tool-card"><div class="tool-top"><div class="tool-logo" style="background:linear-gradient(135deg,' + t.g[0] + ',' + t.g[1] + ')"><i class="' + t.i + '"></i></div><h3>' + escapeHtml(t.n) + '</h3></div>' +
     '<p>' + escapeHtml(t.d) + '</p><div class="tool-meta"><span class="c">' + t.c + '</span><span class="p">' + t.p + '</span><span class="r">★ ' + t.r + '</span></div></div>'
   ).join('') : '<p style="grid-column:1/-1;text-align:center;color:var(--muted)">No tools match. Try another search.</p>';
   if (count) count.textContent = 'Showing ' + list.length + ' of ' + TOOLS.length + ' creator tools';
