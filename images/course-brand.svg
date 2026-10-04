@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Brand deals course illustration">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16a34a"/><stop offset="1" stop-color="#14b8a6"/></linearGradient></defs>
+<rect width="800" height="450" rx="24" fill="url(#g)"/>
+<rect x="80" y="110" width="260" height="180" rx="18" fill="#fff"/><text x="210" y="175" font-family="Arial" font-size="30" font-weight="bold" fill="#15803d" text-anchor="middle">MEDIA KIT</text><rect x="110" y="195" width="200" height="12" rx="6" fill="#bbf7d0"/><rect x="110" y="218" width="140" height="12" rx="6" fill="#bbf7d0"/>
+<text x="430" y="185" font-family="Arial" font-size="36" font-weight="bold" fill="#fff">Brand Deals</text>
+<text x="430" y="230" font-family="Arial" font-size="30" font-weight="bold" fill="#d1fae5">+ Agency ₹1999</text>
+<text x="430" y="268" font-family="Arial" font-size="20" fill="#ecfdf5">Rate card • Contracts</text>
+</svg>

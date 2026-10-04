@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="StyleHub fashion haul sample">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+<rect width="800" height="450" rx="24" fill="url(#g)"/>
+<rect x="60" y="70" width="280" height="310" rx="20" fill="#fff"/><rect x="90" y="100" width="220" height="170" rx="14" fill="#ede9fe"/><circle cx="200" cy="165" r="40" fill="#8b5cf6"/><path d="M170 230c15-50 45-50 60 0z" fill="#3b82f6"/>
+<text x="420" y="190" font-family="Arial" font-size="52" font-weight="bold" fill="#fff">202% ROS</text>
+<text x="420" y="232" font-family="Arial" font-size="23" fill="#dbeafe">StyleHub haul series</text>
+<rect x="420" y="260" width="240" height="48" rx="14" fill="#fff"/><text x="540" y="291" font-family="Arial" font-size="21" font-weight="bold" fill="#4c1d95" text-anchor="middle">56% CTR uplift</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Product shoot illustration">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
+<rect width="800" height="450" rx="24" fill="url(#g)"/>
+<rect x="70" y="90" width="280" height="270" rx="20" fill="#fff"/><rect x="110" y="130" width="120" height="150" rx="14" fill="#ede9fe"/><rect x="135" y="160" width="70" height="90" rx="10" fill="#7c3aed"/><circle cx="280" cy="160" r="30" fill="#fde68a"/>
+<text x="460" y="195" font-family="Arial" font-size="42" font-weight="bold" fill="#fff">Product Shoot</text>
+<text x="460" y="240" font-family="Arial" font-size="26" fill="#fae8ff">₹3499 • 20 photos + 2 reels</text>
+<rect x="460" y="270" width="220" height="50" rx="14" fill="#fff"/><text x="570" y="302" font-family="Arial" font-size="22" font-weight="bold" fill="#7c3aed" text-anchor="middle">Studio + Model</text>
+</svg>

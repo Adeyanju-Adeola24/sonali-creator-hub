@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Foodie Partners shorts engine sample">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/></linearGradient></defs>
+<rect width="800" height="450" rx="24" fill="url(#g)"/>
+<rect x="60" y="90" width="130" height="220" rx="16" fill="#131022"/><rect x="72" y="102" width="106" height="120" rx="10" fill="#f59e0b"/><circle cx="125" cy="162" r="22" fill="#fff"/><path d="M118 148v28l24-14z" fill="#ef4444"/>
+<rect x="210" y="90" width="130" height="220" rx="16" fill="#131022"/><rect x="222" y="102" width="106" height="120" rx="10" fill="#22c55e"/><circle cx="275" cy="162" r="22" fill="#fff"/><path d="M268 148v28l24-14z" fill="#16a34a"/>
+<text x="430" y="190" font-family="Arial" font-size="52" font-weight="bold" fill="#fff">+212%</text>
+<text x="430" y="232" font-family="Arial" font-size="23" fill="#fef3c7">Foodie • 140 videos</text>
+<rect x="430" y="260" width="230" height="48" rx="14" fill="#131022"/><text x="545" y="291" font-family="Arial" font-size="21" font-weight="bold" fill="#fff" text-anchor="middle">90-day growth</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Photo retouch illustration">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16a34a"/><stop offset="1" stop-color="#84cc16"/></linearGradient></defs>
+<rect width="800" height="450" rx="24" fill="url(#g)"/>
+<rect x="60" y="70" width="300" height="310" rx="20" fill="#fff"/><circle cx="210" cy="180" r="60" fill="#dcfce7"/><circle cx="210" cy="165" r="28" fill="#16a34a"/><path d="M150 320c10-70 110-70 120 0z" fill="#16a34a"/>
+<rect x="400" y="90" width="340" height="270" rx="20" fill="#131022" opacity=".9"/>
+<text x="570" y="180" font-family="Arial" font-size="40" font-weight="bold" fill="#fff" text-anchor="middle">Photo Retouch</text>
+<text x="570" y="225" font-family="Arial" font-size="28" fill="#bbf7d0" text-anchor="middle">₹99 / photo</text>
+<rect x="450" y="250" width="240" height="52" rx="14" fill="#22c55e"/><text x="570" y="284" font-family="Arial" font-size="22" font-weight="bold" fill="#fff" text-anchor="middle">Bulk Discount</text>
+</svg>

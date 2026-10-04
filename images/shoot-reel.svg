@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Reel shoot illustration">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/></linearGradient></defs>
+<rect width="800" height="450" rx="24" fill="url(#g)"/>
+<circle cx="200" cy="225" r="120" fill="#131022"/><rect x="160" y="165" width="110" height="80" rx="14" fill="#fff"/><circle cx="215" cy="185" r="22" fill="#1e293b"/><circle cx="222" cy="178" r="7" fill="#fff"/><rect x="185" y="255" width="60" height="50" rx="8" fill="#fff" opacity=".9"/>
+<text x="470" y="195" font-family="Arial" font-size="44" font-weight="bold" fill="#fff">Reel Shoot</text>
+<text x="470" y="245" font-family="Arial" font-size="28" fill="#fff7ed">₹1999 • 2 hrs • 3 reels</text>
+<rect x="470" y="275" width="200" height="50" rx="14" fill="#131022"/><text x="570" y="308" font-family="Arial" font-size="22" font-weight="bold" fill="#fff" text-anchor="middle">Book Now</text>
+</svg>

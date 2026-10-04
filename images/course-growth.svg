@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Growth course illustration">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+<rect width="800" height="450" rx="24" fill="url(#g)"/>
+<polyline points="90,320 220,250 300,280 420,170 500,200" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="500" cy="200" r="18" fill="#22c55e" stroke="#fff" stroke-width="6"/>
+<text x="540" y="150" font-family="Arial" font-size="36" font-weight="bold" fill="#fff">0 to 100K</text>
+<text x="540" y="195" font-family="Arial" font-size="30" font-weight="bold" fill="#dbeafe">Growth ₹1499</text>
+<text x="540" y="235" font-family="Arial" font-size="20" fill="#e0f2fe">Algorithm + Live doubts</text>
+<rect x="90" y="350" width="180" height="14" rx="7" fill="#fff" opacity=".6"/><rect x="90" y="372" width="120" height="14" rx="7" fill="#fff" opacity=".4"/>
+</svg>

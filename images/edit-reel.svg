@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Reels editing illustration">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef4444"/><stop offset="1" stop-color="#f97316"/></linearGradient></defs>
+<rect width="800" height="450" rx="24" fill="url(#g)"/>
+<rect x="60" y="60" width="220" height="330" rx="24" fill="#131022"/><rect x="80" y="80" width="180" height="200" rx="14" fill="#3b355c"/><circle cx="170" cy="180" r="36" fill="#fff"/><path d="M160 158v44l38-22z" fill="#ef4444"/>
+<rect x="80" y="295" width="180" height="14" rx="7" fill="#fff" opacity=".8"/><rect x="80" y="318" width="120" height="14" rx="7" fill="#fff" opacity=".5"/>
+<text x="470" y="190" font-family="Arial" font-size="44" font-weight="bold" fill="#fff">Reels / Shorts</text>
+<text x="470" y="235" font-family="Arial" font-size="26" fill="#ffe4c7">from ₹499 • 24-48 hrs</text>
+<rect x="470" y="270" width="220" height="54" rx="16" fill="#fff"/><text x="580" y="305" font-family="Arial" font-size="24" font-weight="bold" fill="#c2410c" text-anchor="middle">Most Popular</text>
+</svg>
