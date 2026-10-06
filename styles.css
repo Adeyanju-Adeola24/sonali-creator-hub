@@ -82,8 +82,9 @@ section{scroll-margin-top:90px}
 .hero-cats a:hover{background:var(--p);color:#fff;border-color:var(--p)}
 .hero-note{text-align:center;color:#4a4568;font-size:.88rem;margin-top:12px;background:rgba(255,255,255,.75);display:block;padding:10px;border-radius:12px;border:1px dashed #c4b5fd}
 .hero-note a{color:var(--p);font-weight:800}
-.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.9);border:1px solid var(--border);padding:9px 16px;border-radius:100px;font-size:.82rem;font-weight:700;color:var(--p);box-shadow:var(--shadow-sm);max-width:100%;flex-wrap:wrap}
-.badge i{background:var(--grad);color:#fff;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;font-size:.7rem;flex-shrink:0}
+.badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.9);border:1px solid var(--border);padding:10px 18px;border-radius:100px;font-size:.82rem;font-weight:700;color:var(--p);box-shadow:var(--shadow-sm);max-width:100%;flex-wrap:nowrap;line-height:1.35;text-align:left;margin-bottom:6px}
+.badge i{background:var(--grad);color:#fff;width:22px;height:22px;min-width:22px;display:grid;place-items:center;border-radius:50%;font-size:.7rem;flex-shrink:0}
+.badge>span{min-width:0}
 .hero h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero-text{min-width:0}
 .hero-text p{color:var(--muted);margin:18px 0 26px;font-size:1.06rem;max-width:540px}
@@ -228,8 +229,6 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
 .founder-points{list-style:none;text-align:left;display:grid;gap:8px;max-width:320px;margin:0 auto}
 .founder-points li{background:#f8f6ff;border:1px solid #eee7ff;padding:9px 13px;border-radius:11px;font-size:.88rem}
 .founder-points i{color:#16a34a;margin-right:8px}
-.privacy-note{text-align:center;color:var(--muted);font-size:.88rem;margin-top:20px;background:#fff;border:1px dashed #c4b5fd;padding:12px 18px;border-radius:14px;max-width:760px;margin-left:auto;margin-right:auto}
-.privacy-note i{color:var(--p);margin-right:6px}
 
 /* reveal */
 .service-card,.job,.booking-form,.form-wrap,.chat-box{animation:fadeUp .6s ease backwards}
@@ -402,7 +401,7 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
   .quick{padding:14px 10px}
   .quick i{width:38px;height:38px;font-size:1.05rem}
   .hero-stats{grid-template-columns:1fr 1fr 1fr;gap:6px}
-  .badge{font-size:.74rem;padding:8px 12px}
+  .badge{font-size:.76rem;padding:9px 13px;gap:8px}
   .btn{padding:12px 16px;font-size:.88rem}
   .chat-input{padding:10px}
   .chat-input button{padding:0 16px}
