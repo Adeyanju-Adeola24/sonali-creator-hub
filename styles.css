@@ -41,14 +41,17 @@ section{scroll-margin-top:90px}
 /* navbar */
 .navbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.86);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid rgba(233,226,255,.9)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;gap:12px;position:relative}
-.logo{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--dark);min-width:0}
+.logo{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--dark);flex:0 0 auto}
 .logo-mark{width:46px;height:46px;border-radius:15px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.4rem;box-shadow:0 8px 24px rgba(124,58,237,.4);position:relative;flex-shrink:0}
 .logo-img{width:46px;height:46px;border-radius:14px;flex-shrink:0;box-shadow:0 8px 24px rgba(124,58,237,.4);display:block}
 .logo-tcs{font-size:.95rem!important;letter-spacing:.5px;padding:0 6px;width:auto!important;min-width:62px}
-.logo strong{display:block;font-size:.92rem;letter-spacing:.3px;white-space:nowrap}
-.logo small{color:var(--muted);font-size:.7rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:220px}
+.logo-text{min-width:0;flex:0 1 auto}
+.lg-full,.lg-short,.lg-xs{display:none}
+.logo .lg-full{display:inline}
+.logo strong{display:block;font-size:.92rem;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo small{color:var(--muted);font-size:.7rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
 .logo-light{color:#fff}.logo-light small{color:#b7a8e8}
-.nav-links{display:flex;gap:6px;background:#f6f2ff;padding:6px;border-radius:100px;border:1px solid var(--border);align-items:center}
+.nav-links{display:flex;gap:6px;background:#f6f2ff;padding:6px;border-radius:100px;border:1px solid var(--border);align-items:center;min-width:0}
 .nav-links a{text-decoration:none;color:#4a4568;font-weight:600;font-size:.88rem;padding:8px 15px;border-radius:100px;transition:.25s;white-space:nowrap}
 .nav-links a.active,.nav-links a:hover{background:#fff;color:var(--p);box-shadow:var(--shadow-sm)}
 .nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
@@ -190,11 +193,14 @@ footer{background:linear-gradient(180deg,#131022,#1e1745);color:#c9bdf5;position
 footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;height:200px;background:radial-gradient(circle,rgba(124,58,237,.4),transparent);filter:blur(20px);pointer-events:none}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px;padding:60px 22px 24px;position:relative;z-index:1}
 .footer-brand p{color:#9d90d0;font-size:.92rem;margin-top:12px}
-.social-row{display:flex;gap:10px;margin-top:16px}
-.social-row a{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#e6dcff;display:grid;place-items:center;font-size:1.05rem;transition:.25s;margin:0}
-.social-row a:hover{background:var(--grad);color:#fff;transform:translateY(-3px)}
-.footer-grid a,.footer-grid span{display:block;color:#9d90d0;text-decoration:none;margin:7px 0;font-size:.9rem;transition:.2s}
-.footer-grid a:hover{color:#fff;padding-left:4px}
+.social-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.social-row a{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#dbd2f2;display:grid;place-items:center;font-size:1rem;line-height:1;transition:.25s;margin:0;flex:0 0 auto}
+.social-row a:hover{background:var(--grad);border-color:transparent;color:#fff;transform:translateY(-2px)}
+.social-row a:focus-visible{outline:3px solid rgba(255,255,255,.5);outline-offset:2px}
+/* scoped so the social row above keeps its own grid centring — a bare .footer-grid a
+   rule used to override it and push every icon into the top-left corner */
+.footer-grid>div:not(.footer-brand) a,.footer-grid span{display:block;color:#9d90d0;text-decoration:none;margin:7px 0;font-size:.9rem;transition:.2s}
+.footer-grid>div:not(.footer-brand) a:hover{color:#fff;padding-left:4px}
 .footer-grid h4{color:#fff;margin-bottom:10px;font-size:.95rem}
 .footer-bottom{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.87rem;color:#8f83c4;position:relative;z-index:1;padding-left:22px;padding-right:22px}
 .chat-fab{position:fixed;right:22px;bottom:22px;width:60px;height:60px;border-radius:50%;border:0;background:var(--grad);color:#fff;font-size:1.55rem;cursor:pointer;box-shadow:0 14px 36px rgba(124,58,237,.5);transition:.25s;z-index:99;bottom:calc(22px + env(safe-area-inset-bottom))}
@@ -373,8 +379,10 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
 @media(max-width:560px){
   .container{padding:0 16px}
   .nav-inner{padding:10px 16px}
-  .logo strong{font-size:.82rem}
-  .logo small{max-width:150px;font-size:.64rem}
+  .logo .lg-full{display:none}
+  .logo .lg-short{display:inline}
+  .logo strong{font-size:.76rem;letter-spacing:.2px}
+  .logo small{max-width:100%;font-size:.64rem}
   .logo-mark{width:40px;height:40px;font-size:1.15rem}
   .logo-img{width:40px;height:40px}
   .nav-cta-text{display:none}
@@ -397,6 +405,9 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
 /* Mobile small */
 @media(max-width:400px){
   h1{font-size:1.75rem}
+  .logo{gap:9px}
+  .logo strong{font-size:.7rem;letter-spacing:.1px}
+  .logo small{font-size:.6rem}
   .quick-grid{grid-template-columns:1fr 1fr;gap:10px}
   .quick{padding:14px 10px}
   .quick i{width:38px;height:38px;font-size:1.05rem}
@@ -410,7 +421,10 @@ footer::before{content:'';position:absolute;top:-100px;left:30%;width:400px;heig
 @media(max-width:340px){
   .quick-grid{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:1fr}
-  .logo small{display:none}
+  .logo .lg-short{display:none}
+  .logo .lg-xs{display:inline}
+  .logo strong{font-size:.7rem}
+  .logo small{font-size:.7rem}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
